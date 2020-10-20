@@ -1,0 +1,30 @@
+{%- include body-begin.html -%}
+<div class="row">
+    <div class="col-md-3" style="padding: 1em">
+        <div class="card text-center bg-dark text-white shadow">
+            <div class="card-header container" style="padding: 1em;">
+                <img src="/assets/img/beungeut.png" class="img-fluid rounded-circle" style="width: 10em"/>
+            </div>
+            <div class="card-body">
+                <div class="card-title"> {{ site.user_name }} </div>
+                <div class="card-text">
+                    @{{ site.user_global_username }}
+                    <p id="social-cards">
+                        <a class="social-links" href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a class="social-links" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a class="social-links" href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a class="social-links" href="#"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    </p>
+                    <p>{{ site.user_bio }}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col" style="padding: 1em">
+        <div class="card bg-dark shadow-lg " >
+            
+        </div>
+    </div>
+</div>
+{%- include body-end.html -%}

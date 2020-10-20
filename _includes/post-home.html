@@ -1,0 +1,41 @@
+<div class="flex-row" style="padding: 0.5em">
+    {% for post in paginator.posts %}
+    <div class="col-lg" style="padding: 0.5em 0em">
+        <div class="card bg-dark text-white shadow-lg">
+            <div class="card-header">
+                <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
+                <div id="post-complimentery">
+                    {{ post.date | date_to_long_string }}
+                </div>
+            </div>
+            <div class="card-body">
+                {{ post.excerpt }}
+            </div>
+        </div>
+    </div>
+    {% endfor%}
+    
+    {% if paginator.total_pages > 1 %}
+    <div class="col-lg">
+        <nav aria-label="Pagi Navigation" style="padding: 2em">
+            <ul class="pagination justify-content-center">
+                {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                    <li class="page-item active" style="padding: 0.3em">
+                        <a class="page-link bg-dark border-0 shadow" href="{{ '/' | relative_url }}">{{ page }}</a>
+                    </li>
+                    {% elsif page == 1 %}
+                    <li class="page-item" style="padding: 0.3em">
+                        <a class="page-link bg-dark border-0 shadow" href="{{ '/' | relative_url }}">{{ page }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item" style="padding: 0.3em">
+                        <a class="page-link bg-dark border-0 shadow" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</div>
